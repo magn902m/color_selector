@@ -5,7 +5,9 @@ main > section {
   border-radius: 2rem;
 }
 
-.color_picked {
+.color_box {
   height: 3rem;
   width: 6rem;
+  border: solid 1px #000;
+  border-radius: 1rem;
 }
