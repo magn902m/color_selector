@@ -1,17 +1,24 @@
 `use strict`;
 
-window.addEventListener("DOMContentLoaded", start);
+window.addEventListener("DOMContentLoaded", setup);
 
 const HTML = {};
 
-function start() {
-  console.log("start");
+function setup() {
+  console.log("setup");
   HTML.input = document.querySelector("#colorwheel");
   HTML.colorCodes = document.querySelector("#colorCodes");
   HTML.hexValue = document.querySelector(".hex");
   HTML.rgbValue = document.querySelector(".rgb");
   HTML.hslValue = document.querySelector(".hsl");
   HTML.colorBox = document.querySelector(".color_box");
+  HTML.colorBody = document.querySelector("body");
+
+  HTML.hexValue.textContent = HTML.input.value;
+  HTML.rgbValue.textContent = "rgb(255, 255, 255)";
+  HTML.hslValue.textContent = "hsl: 0, 0, 100";
+  HTML.colorBox.style.backgroundColor = `${HTML.input.value}`;
+
   HTML.input.addEventListener("input", getColor);
   // console.log(HTML);
 }
@@ -22,6 +29,7 @@ function getColor() {
 
 function changeColorBox(getColor) {
   HTML.colorBox.style.backgroundColor = `${getColor}`;
+  HTML.colorBody.style.backgroundColor = `${getColor}`;
   showHex(getColor);
 }
 
@@ -98,5 +106,5 @@ function rgbToHSL(rgbObj) {
 
 function showHSL(hslObj) {
   HTML.hslValue.textContent =
-    hslObj.h.toFixed(0) + "%. " + hslObj.s.toFixed(0) + "%. " + hslObj.l.toFixed(0) + "%";
+    "hsl: " + hslObj.h.toFixed(0) + "%. " + hslObj.s.toFixed(0) + "%. " + hslObj.l.toFixed(0) + "%";
 }
