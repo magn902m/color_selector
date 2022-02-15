@@ -1,0 +1,11 @@
+main > section {
+  background-color: gainsboro;
+  padding: 5rem;
+  border: solid 1px #000;
+  border-radius: 2rem;
+}
+
+.color_picked {
+  height: 3rem;
+  width: 6rem;
+}
